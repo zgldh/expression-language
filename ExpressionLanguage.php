@@ -106,15 +106,16 @@ class ExpressionLanguage
      * @param Expression|string $expression The expression to validate
      * @param array|null        $names      The list of acceptable variable names in the expression, or null to accept any names
      *
+     * @return Node\Node A node tree
      * @throws SyntaxError When the passed expression is invalid
      */
-    public function lint($expression, ?array $names): void
+    public function lint($expression, ?array $names)
     {
         if ($expression instanceof ParsedExpression) {
             return;
         }
 
-        $this->getParser()->lint($this->getLexer()->tokenize((string) $expression), $names);
+        return $this->getParser()->lint($this->getLexer()->tokenize((string) $expression), $names);
     }
 
     /**

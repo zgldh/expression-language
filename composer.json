@@ -1,5 +1,5 @@
 {
-    "name": "symfony/expression-language",
+    "name": "zgldh/expression-language",
     "type": "library",
     "description": "Provides an engine that can compile and evaluate expressions",
     "keywords": [],
