@@ -103,12 +103,14 @@ class Parser
      * The syntax of the passed expression will be checked, but not parsed.
      * If you want to skip checking dynamic variable names, pass `null` instead of the array.
      *
+     * @return Node\Node A node tree
+     * 
      * @throws SyntaxError When the passed expression is invalid
      */
-    public function lint(TokenStream $stream, ?array $names = []): void
+    public function lint(TokenStream $stream, ?array $names = [])
     {
         $this->lint = true;
-        $this->doParse($stream, $names);
+        return $this->doParse($stream, $names);
     }
 
     /**
